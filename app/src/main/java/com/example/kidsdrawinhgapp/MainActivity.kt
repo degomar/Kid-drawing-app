@@ -31,10 +31,24 @@ class MainActivity : AppCompatActivity() {
         brushDialogue.setTitle("Tamanho do Brush: ")
 
         val smallBtn = brushDialogue.findViewById<ImageButton>(R.id.ib_small_brush)
+        val mediumBtn = brushDialogue.findViewById<ImageButton>(R.id.ib_medium_brush)
+        val largeBtn = brushDialogue.findViewById<ImageButton>(R.id.ib_large_brush)
+
         smallBtn.setOnClickListener {
             drawingViewLayout?.setSizeForBrush(10.toFloat())
             brushDialogue.dismiss()
         }
+
+        mediumBtn.setOnClickListener {
+            drawingViewLayout?.setSizeForBrush(20.toFloat())
+            brushDialogue.dismiss()
+        }
+
+        largeBtn.setOnClickListener {
+            drawingViewLayout?.setSizeForBrush(30.toFloat())
+            brushDialogue.dismiss()
+        }
+
         brushDialogue.show()
     }
 
