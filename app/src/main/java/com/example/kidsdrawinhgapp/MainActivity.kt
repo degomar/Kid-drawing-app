@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showBrushSizeChooserDialogue() {
-        //var drView = drawingViewLayout
         val brushDialogue = Dialog(this)
         brushDialogue.setContentView(R.layout.dialog_brush_size)
         brushDialogue.setTitle("Tamanho do Brush: ")
