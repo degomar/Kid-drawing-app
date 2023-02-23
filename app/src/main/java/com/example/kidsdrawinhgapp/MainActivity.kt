@@ -2,15 +2,19 @@ package com.example.kidsdrawinhgapp
 
 import android.app.Activity
 import android.app.Dialog
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
+import androidx.core.content.ContextCompat
+import androidx.core.view.get
 import androidx.databinding.DataBindingUtil
 import com.example.kidsdrawinhgapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding : ActivityMainBinding
     var drawingViewLayout : DrawingView? = null
+    var myImageButtonCurrentPaint : ImageButton? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,6 +25,11 @@ class MainActivity : AppCompatActivity() {
         binding.icBrush.setOnClickListener {
             showBrushSizeChooserDialogue()
         }
+
+        myImageButtonCurrentPaint = binding.llPaleletColor[1] as ImageButton
+        myImageButtonCurrentPaint!!.setImageDrawable(
+            ContextCompat.getDrawable(this, R.drawable.pallet_pressed)
+        )
 
     }
 
