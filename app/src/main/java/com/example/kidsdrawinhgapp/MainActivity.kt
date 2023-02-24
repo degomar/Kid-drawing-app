@@ -5,9 +5,13 @@ import android.app.Dialog
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageButton
+import android.widget.LinearLayout
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
+import androidx.core.view.size
 import androidx.databinding.DataBindingUtil
 import com.example.kidsdrawinhgapp.databinding.ActivityMainBinding
 
@@ -60,6 +64,25 @@ class MainActivity : AppCompatActivity() {
         brushDialogue.show()
     }
 
+    fun paintClicked(view: View) {
+
+        if (view != myImageButtonCurrentPaint) {
+            val imageButton = view as ImageButton
+            val colorTag = imageButton.tag.toString()
+            drawingViewLayout!!.setColor(colorTag)
+
+            imageButton.setImageDrawable(
+                ContextCompat.getDrawable(this, R.drawable.pallet_pressed)
+            )
+
+            myImageButtonCurrentPaint?.setImageDrawable(
+                ContextCompat.getDrawable(this, R.drawable.pallet_normal)
+            )
+
+            myImageButtonCurrentPaint = view
+        }
+
+    }
 
 
 }
